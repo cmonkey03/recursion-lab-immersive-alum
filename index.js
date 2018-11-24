@@ -36,6 +36,23 @@ function addUpTo(myArray, index) {
   }
 }
 
-fuction maxOf(myArray) {
-  
+function maxOf(myArray) {
+  if (myArray.length < 2) {
+    return myArray[0]
+  } else if (myArray[0] < myArray[1]) {
+    return maxOf(myArray.slice(1))
+  } else {
+    myArray.splice(1, 1)
+    return maxOf(myArray)
+  }
+}
+
+function includesNumber(myArray, num) {
+  if (myArray.length < 1) {
+    return false
+  } else if (myArray[0] === num) {
+    return true
+  } else {
+    return includesNumber(myArray.slice(1), num)
+  }
 }
